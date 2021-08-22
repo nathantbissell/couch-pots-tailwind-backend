@@ -1,20 +1,20 @@
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require('express');
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const cors = require("cors");
+const cors = require('cors');
 const app = express();
 app.use(express.json());
-const playerRoutes = require("./routes/player_routes");
+const playerRoutes = require('../routes/player_routes');
 app.use(playerRoutes);
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: 'http://localhost:3000',
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
 
 var connectionString =
-  "mongodb+srv://admin:admin123@couchpots.q4sd4.mongodb.net/nfl?retryWrites=true&w=majority";
+  'mongodb+srv://admin:admin123@couchpots.q4sd4.mongodb.net/nfl?retryWrites=true&w=majority';
 
 mongoose.Promise = global.Promise;
 mongoose.connect(connectionString, {
