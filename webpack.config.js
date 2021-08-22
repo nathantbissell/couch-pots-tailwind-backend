@@ -9,6 +9,16 @@ module.exports = {
   resolve: {
     fallback: {
       util: require.resolve('util/'),
+      fs: false,
+      os: false,
+      tls: false,
+      net: false,
+      path: false,
+      zlib: false,
+      http: false,
+      https: false,
+      stream: false,
+      crypto: require.resolve('crypto-browserify'),
     },
   },
 };
